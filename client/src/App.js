@@ -4,7 +4,7 @@ import Nav from "./components/Nav";
 import Login from "./components/Login";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
-import Locations from "./pages/Categories";
+import Locations from "./pages/Locations";
 function App() {
   return (
     <Router>
