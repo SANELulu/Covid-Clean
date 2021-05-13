@@ -1,11 +1,12 @@
 import React from "react";
+import Map from './Map'
 
-function Map() {
+function MapExport() {
   return (
     <div>
-      <a>MAP COMPONENT</a>
+      <Map />
     </div>
   );
 }
 
-export default Map;
+export default MapExport;
