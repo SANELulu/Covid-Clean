@@ -3,7 +3,12 @@ import React from "react";
 function Footer() {
   return (
     <div>
-      <h3>FOOTER</h3>
+      <footer className="  bg-warning">
+        <div className="footer-copyright text-center py-3">
+          © 2021 Copyright:
+          <a href=""> CovidClean.com</a>
+        </div>
+      </footer>
     </div>
   );
 }
