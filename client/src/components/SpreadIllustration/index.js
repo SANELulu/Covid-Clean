@@ -1,12 +1,16 @@
 import React from "react";
-
+import spreadImage from "../../assets/cleanmind.png";
+import "./style.css";
+import Grid from "@material-ui/core/Grid";
 function SpreadIllustration({ data }) {
   return (
     <div>
-      <h5>{data}</h5>
-      <a href="https://placeholder.com">
-        <img src="https://via.placeholder.com/800x200"></img>
-      </a>
+      <Grid>
+        <h5>{data}</h5>
+        <a href="/">
+          <img id="spread" src={spreadImage}></img>
+        </a>
+      </Grid>
     </div>
   );
 }

@@ -30,6 +30,13 @@ function Home() {
 
   return (
     <div className="pt-5">
+      {/* background image for home page- does not work atm
+      <div
+        style={{
+          backgroundImage: clouds,
+        }}
+      > */}
+
       <div className={classes.root}>
         <Grid container spacing={4}>
           <Grid item xs={12}>
@@ -72,43 +79,9 @@ function Home() {
           </Grid>
         </Grid>
       </div>
+      {/* </div> div for background image */}
     </div>
   );
 }
-
-// function Home() {
-//   let history = useHistory();
-
-//   const redirect = () => {
-//     history.push("/locations");
-//   };
-//   return (
-//     <div className="pt-5  text-center ">
-//       <a>HOME PAGE</a>
-//       <br />
-//       <a>SPREAD ILLUSTRATION COMPONENT GOES HERE</a>
-//       <SpreadIllustration />
-//       <br />
-
-//       <br />
-//       <a>FEATURES OF APP COMPONENT GOES HERE</a>
-//       <a href="https://placeholder.com">
-//         <img src="https://via.placeholder.com/800x200"></img>
-//       </a>
-//       <br />
-//       <Benefits />
-//       <br />
-//       <Button
-//         variant="contained"
-//         color="secondary"
-//         onClick={redirect}
-//         type="button"
-//         className="btn btn-dark"
-//       >
-//         Locations
-//       </Button>
-//     </div>
-//   );
-// }
 
 export default Home;

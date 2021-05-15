@@ -5,7 +5,10 @@ import Grid from "@material-ui/core/Grid";
 function Location({ data, info, comment }) {
   return (
     <div>
-      <Grid container justify="center" alignItems="center" item xs={12} s={6}>
+      <Grid
+      // container
+      //  justify="center" alignItems="center"
+      >
         <Paper>
           <h5>{data}</h5>
           <h5>{info}</h5>
