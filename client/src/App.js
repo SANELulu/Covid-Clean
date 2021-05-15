@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import Locations from "./pages/Locations";
 import Details from "./pages/Details";
+import PostRating from "./components/PostRating";
 function App() {
   return (
     <Router>
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/locations" component={Locations} />
         {/* /details needs to be locations:id */}
         <Route exact path="/details" component={Details} />
+        <Route exact path="/ratepost" component={PostRating} />
         {/* <Route exact path="/location" component={Locations} /> */}
       </Switch>
       <Footer />

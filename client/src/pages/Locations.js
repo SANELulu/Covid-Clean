@@ -9,8 +9,9 @@ function Locations() {
       <br />
       <a>IF SIGNED IN:</a>
       <br />
-      <Grid container>
-        <Grid item xs={12} sm={6}>
+
+      <Grid container spacing={4}>
+        <Grid item xs={12} md={6}>
           <Location
             data={"restaurant 1"}
             info={"info 1"}
@@ -18,7 +19,7 @@ function Locations() {
           />
         </Grid>
         <br />
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} md={6}>
           <Location
             data={"restaurant 2"}
             info={"info 2"}
@@ -26,7 +27,7 @@ function Locations() {
           />
         </Grid>
         <br />
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} md={6}>
           <Location
             data={"restaurant 3"}
             info={"info 3"}
@@ -34,7 +35,7 @@ function Locations() {
           />
         </Grid>
         <br />
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} md={6}>
           <Location
             data={"restaurant 4"}
             info={"info 4"}

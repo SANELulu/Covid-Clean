@@ -1,13 +1,13 @@
 import React from "react";
 import MapExport from "../components/Map/index";
-import PostRating from "../components/PostRating";
+
 import CommunityRatings from "../components/CommunityRatings";
 import { useHistory } from "react-router-dom";
 function Details() {
   let history = useHistory();
 
   const redirect = () => {
-    history.push("/");
+    history.push("/ratepost");
   };
 
   return (

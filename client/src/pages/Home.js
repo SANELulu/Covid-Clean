@@ -62,17 +62,17 @@ function Home() {
           </Grid>
         </Grid>
         <Grid container spacing={4}>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={4}>
             <Paper className={classes.paper}>
-              <Benefits data={"THE DATA THATS SENT OVER VIA PROPS"} />
+              <Benefits data={"PROPS DATA"} />
             </Paper>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={4}>
             <Paper className={classes.paper}>
               <Benefits data={"PROP DATA 2"} />
             </Paper>
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} md={4}>
             <Paper className={classes.paper}>
               <Benefits data={"PROP DATA 3"} />
             </Paper>
