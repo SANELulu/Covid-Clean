@@ -1,4 +1,7 @@
 {
+
+    "name": "Master Map",
+
     "features": [{
         "type": "Feature",
         "geometry": {
