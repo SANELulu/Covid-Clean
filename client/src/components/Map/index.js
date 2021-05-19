@@ -1,10 +1,10 @@
 import React from "react";
-import Map from './Map'
+import Map from "./Map";
 
-function MapExport() {
+function MapExport({ id }) {
   return (
     <div>
-      <Map />
+      <Map id={id} />
     </div>
   );
 }

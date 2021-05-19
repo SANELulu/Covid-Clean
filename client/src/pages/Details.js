@@ -2,9 +2,11 @@ import React from "react";
 import MapExport from "../components/Map/index";
 
 import CommunityRatings from "../components/CommunityRatings";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+
 function Details() {
   let history = useHistory();
+  let { id } = useParams();
 
   const redirect = () => {
     history.push("/ratepost");
@@ -12,11 +14,11 @@ function Details() {
 
   return (
     <div>
-      <a>DETAILS OF LOCATION</a>
       <br />
       <br />
-      <a>map export</a>
-      <MapExport />
+      <br />
+      <MapExport id={id} />
+
       <br />
 
       <button onClick={redirect} type="button" className="btn btn-dark">

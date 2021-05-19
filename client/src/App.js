@@ -17,6 +17,7 @@ function App() {
         <Route exact path="/locations" component={Locations} />
         {/* /details needs to be locations:id */}
         <Route exact path="/details" component={Details} />
+        <Route path="/details/:id" component={Details} />
         <Route exact path="/ratepost" component={PostRating} />
         {/* <Route exact path="/location" component={Locations} /> */}
       </Switch>

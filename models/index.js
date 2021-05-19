@@ -1,4 +1,4 @@
 module.exports = {
-    Map: require("./map")
-  };
-  
+  Map: require("./map"),
+  User: require("./user"),
+};
