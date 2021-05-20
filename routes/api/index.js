@@ -4,6 +4,6 @@ const userRoutes = require("./user");
 
 //map routes
 router.use("/map", mapRoutes);
-router.unsubscribe("map", userRoutes);
+router.use("/user", userRoutes);
 
 module.exports = router;

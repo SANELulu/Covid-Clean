@@ -41,18 +41,16 @@ const Map = ({ id }) => {
       zoom: zoom,
     });
 
-    // API.getMap()
-    //   .then((res) => {
-    //     geoJson.push(res.data[0].features[0]);
+    API.getMap()
+      .then((res) => {
+        const Lng = res.data[0].features[0].geometry.coordinates[0];
+        const Lat = res.data[0].features[0].geometry.coordinates[1];
+        setMrkLng(res.data[0].features[0].geometry.coordinates[0]);
+        setMrkLat(res.data[0].features[0].geometry.coordinates[1]);
 
-    //     const Lng = res.data[0].features[0].geometry.coordinates[0];
-    //     const Lat = res.data[0].features[0].geometry.coordinates[1];
-    //     setMrkLng(res.data[0].features[0].geometry.coordinates[0]);
-    //     setMrkLat(res.data[0].features[0].geometry.coordinates[1]);
-
-    //     new mapboxgl.Marker().setLngLat([Lng, Lat]).addTo(map);
-    //   })
-    //   .catch((err) => console.log(err));
+        new mapboxgl.Marker().setLngLat([Lng, Lat]).addTo(map);
+      })
+      .catch((err) => console.log(err));
 
     API.getMapID(id)
 

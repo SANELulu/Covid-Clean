@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import SpreadIllustration from "../components/SpreadIllustration";
 import Benefits from "../components/Benefits";
 import { Button } from "@material-ui/core";
+import Locations from "./Locations";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -24,10 +25,6 @@ function Home() {
   const classes = useStyles();
   let history = useHistory();
 
-  const redirect = () => {
-    history.push("/locations");
-  };
-
   return (
     <div className="pt-5">
       {/* background image for home page- does not work atm
@@ -46,15 +43,7 @@ function Home() {
           </Grid>
           <Grid item xs={12}>
             <Paper>
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={redirect}
-                type="button"
-                className="btn btn-dark"
-              >
-                Locations
-              </Button>
+              <Locations />
             </Paper>
           </Grid>
           <Grid item xs={12}>

@@ -12,20 +12,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        CovidClean
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
+import API from "../../Utils/API";
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -48,6 +35,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUpForm() {
   const classes = useStyles();
+
+  const SignupSubmit = (e) => {
+    e.preventDefault();
+    console.log("SingupSubmit hittin");
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -120,6 +112,7 @@ export default function SignUpForm() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={SignupSubmit}
           >
             Sign Up
           </Button>
@@ -132,9 +125,7 @@ export default function SignUpForm() {
           </Grid>
         </form>
       </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
+      <Box mt={5}></Box>
     </Container>
   );
 }
