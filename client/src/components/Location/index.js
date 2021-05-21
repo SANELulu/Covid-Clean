@@ -15,7 +15,7 @@ function Location({ data }) {
       <Grid>
         <Paper>
           <div className="justify-content-center text-center pb-4">
-            <h5>{data}</h5>
+            <h5>name:{data}</h5>
             <img
               onClick={redirect}
               id="location-image-width"

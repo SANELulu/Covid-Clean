@@ -41,21 +41,21 @@ const Map = ({ id }) => {
       zoom: zoom,
     });
 
-    API.getMap()
-      .then((res) => {
-        const Lng = res.data[0].features[0].geometry.coordinates[0];
-        const Lat = res.data[0].features[0].geometry.coordinates[1];
-        setMrkLng(res.data[0].features[0].geometry.coordinates[0]);
-        setMrkLat(res.data[0].features[0].geometry.coordinates[1]);
+    // API.getMap(id)
+    //   .then((res) => {
+    //     const Lng = res.data[0].features[0].geometry.coordinates[0];
+    //     const Lat = res.data[0].features[0].geometry.coordinates[1];
+    //     setMrkLng(res.data[0].features[0].geometry.coordinates[0]);
+    //     setMrkLat(res.data[0].features[0].geometry.coordinates[1]);
 
-        new mapboxgl.Marker().setLngLat([Lng, Lat]).addTo(map);
-      })
-      .catch((err) => console.log(err));
+    //     new mapboxgl.Marker().setLngLat([Lng, Lat]).addTo(map);
+    //   })
+    //   .catch((err) => console.log(err));
 
     API.getMapID(id)
-
       .then((res) => {
-        console.log(res.data.features[0].properties);
+        // console.log(res);
+        // console.log(res.data.features[0].properties);
         var popup = new mapboxgl.Popup({ offset: 35 }).setHTML(
           "<h3>" +
             "<a href = " +

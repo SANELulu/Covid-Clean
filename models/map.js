@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const mapSchema = new Schema({
   features: { type: Array },
-  id: { type: Number },
+  id: { type: String },
 });
 
 const Map = mongoose.model("Map", mapSchema);
