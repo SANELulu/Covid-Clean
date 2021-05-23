@@ -14,6 +14,7 @@ function Locations() {
     spacing: 8,
     root: {
       flexGrow: 1,
+      // display: "inline",
       background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
     },
     image: {
@@ -35,9 +36,9 @@ function Locations() {
     API.getMap().then((res) => {
       const restaurants = res.data;
       const id = res.data.id;
-      console.log(restaurants[0].id);
-      console.log(restaurants[0].features[0].properties.title);
-      console.log(restaurants[0].features[0].properties.description);
+      // console.log(restaurants[0].id);
+      // console.log(restaurants[0].features[0].properties.title);
+      // console.log(restaurants[0].features[0].properties.description);
 
       const redirect = (e) => {
         let ID = e.target.id;
@@ -47,35 +48,27 @@ function Locations() {
 
       let listLocations = restaurants.map((location) => (
         <Fade left cascade delay={900}>
-          {/* <Grid */}
-          {/* container alignContent="center"  direction="column"
-          justify="space-evenly" alignItems="stretch" justify="center"
-          alignItems="center" spacing={4}
-          className={classes.root}  */}
-          {/* > */}
-          <Box p={2}>
-            <Grid item xs={12} md={6}>
-              {/* <h5>title : {location.features[0].properties.title}</h5> */}
-              <img
-                // id="spread"
-                style={{
-                  // display: "flex",
-                  // alignItem: "center",
-                  // justifyContent: "center",
-                  // maxWidth: "500",
-                  // height: "auto",
-                  // works
-                  maxHeight: "200px",
-                  width: "auto",
-                }}
-                className="img-width"
-                onClick={redirect}
-                id={location.id}
-                src={`/assets/lincoln-road-${location.id}.png`}
-              ></img>
-            </Grid>
+          <Box p={2} xs={12} sm={6}>
+            {/* <h5>title : {location.features[0].properties.title}</h5> */}
+            <img
+              style={{
+                borderRadius: 16,
+                border: 1,
+                // display: "inline",
+                // alignItem: "center",
+                // justifyContent: "center",
+                // maxWidth: "500",
+                // height: "auto",
+                // works
+                maxHeight: "200px",
+                width: "auto",
+              }}
+              className="img-width"
+              onClick={redirect}
+              id={location.id}
+              src={`/assets/lincoln-road-${location.id}.png`}
+            ></img>
           </Box>
-          {/* </Grid> */}
         </Fade>
       ));
       setListLocation(listLocations);
@@ -91,7 +84,7 @@ function Locations() {
       // spacing={4}
       className={classes.root}
     >
-      <div>{listLocation}</div>
+      {listLocation}
     </Grid>
   );
 }
