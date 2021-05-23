@@ -138,30 +138,8 @@ const mapSeed = [
         properties: {
           title: "Pizza Rustica",
           description: "Restaurant",
-          status: "CLOSED DUE TO COVID",
-          website:
-            "https://www.tripadvisor.com/Restaurant_Review-g34439-d11963179-Reviews-Montalcino-Miami_Beach_Florida.html",
-        },
-      },
-    ],
-  },
-
-  {
-    id: "8",
-
-    features: [
-      {
-        type: "Feature",
-        geometry: {
-          type: "Point",
-          coordinates: [-80.13547942134939, 25.79076001797118],
-        },
-        properties: {
-          title: "Pizza Rustica",
-          description: "Restaurant",
-          status: "CLOSED DUE TO COVID",
-          website:
-            "https://www.tripadvisor.com/Restaurant_Review-g34439-d11963179-Reviews-Montalcino-Miami_Beach_Florida.html",
+          status: "Open",
+          website: "https://pizza-rustica.com/",
         },
       },
     ],

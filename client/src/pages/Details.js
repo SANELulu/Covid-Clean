@@ -1,6 +1,6 @@
 import React from "react";
 import MapExport from "../components/Map/index";
-
+import { Fade } from "react-reveal";
 import CommunityRatings from "../components/CommunityRatings";
 import { useHistory, useParams } from "react-router-dom";
 
@@ -14,19 +14,21 @@ function Details() {
 
   return (
     <div>
+      <Fade left delay={900}>
+        <br />
+        <br />
+        <br />
+        <MapExport id={id} />
+      </Fade>
       <br />
-      <br />
-      <br />
-      <MapExport id={id} />
+      <Fade bottom delay={900}>
+        <button onClick={redirect} type="button" className="btn btn-dark">
+          post rating?
+        </button>
 
-      <br />
-
-      <button onClick={redirect} type="button" className="btn btn-dark">
-        post rating?
-      </button>
-
-      <br />
-      <CommunityRatings />
+        <br />
+        <CommunityRatings />
+      </Fade>
     </div>
   );
 }

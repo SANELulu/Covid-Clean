@@ -1,17 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import SignInSide from "../User/Signin";
 import SignUpForm from "../User/Signup";
 
 function Login() {
+  const [alreadyHaveAccount, setAlreadyHaveAccount] = useState(false);
+  
   return (
     <div>
       <br />
       <br />
-      <SignInSide />
-      <br />
-      <SignUpForm />
-    </div>
+      {
+        !alreadyHaveAccount
+        ? <SignInSide setAlreadyHaveAccount={setAlreadyHaveAccount}/>
+        : <SignUpForm  setAlreadyHaveAccount={setAlreadyHaveAccount}/>
+      }
+      </div>
   );
 }
+
 
 export default Login;

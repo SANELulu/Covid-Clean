@@ -1,20 +1,35 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import Location from "../components/Location";
-import Grid from "@material-ui/core/Grid";
+// import Location from "../components/Location";
+import { Grid, Paper, makeStyles, Box } from "@material-ui/core";
 import API from "../Utils/API";
-import Paper from "@material-ui/core/Paper";
-
+import { Fade } from "react-reveal";
+import "./style.css";
+// import image from "../assets/lincoln-road-1.png";
 //map out locations from mongo db to render each location component
 function Locations() {
   const [listLocation, setListLocation] = useState();
+  //styling for component
+  const useStyles = makeStyles((theme) => ({
+    spacing: 8,
+    root: {
+      flexGrow: 1,
+      background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+    },
+    image: {
+      // width: "33%",
+      // display: "flex",
+      // flexGrow: 1,
+      // width: "100vh",
+      // alignItems: "center",
+      // textAlign: "center",
+      height: 50,
+      width: "auto",
+    },
+  }));
 
   let history = useHistory();
-  // let { params } = useParams();
-  // const redirect = () => {
-  //   // console.log(id);
-  //   // history.push("/details/" + id);
-  // };
+  const classes = useStyles();
 
   useEffect(() => {
     API.getMap().then((res) => {
@@ -31,46 +46,54 @@ function Locations() {
       };
 
       let listLocations = restaurants.map((location) => (
-        <Grid>
-          <Paper>
-            <div className="justify-content-center text-center pb-4">
-              <h5>title:{location.features[0].properties.title}</h5>
+        <Fade left cascade delay={900}>
+          {/* <Grid */}
+          {/* container alignContent="center"  direction="column"
+          justify="space-evenly" alignItems="stretch" justify="center"
+          alignItems="center" spacing={4}
+          className={classes.root}  */}
+          {/* > */}
+          <Box p={2}>
+            <Grid item xs={12} md={6}>
+              {/* <h5>title : {location.features[0].properties.title}</h5> */}
               <img
+                // id="spread"
+                style={{
+                  // display: "flex",
+                  // alignItem: "center",
+                  // justifyContent: "center",
+                  // maxWidth: "500",
+                  // height: "auto",
+                  // works
+                  maxHeight: "200px",
+                  width: "auto",
+                }}
+                className="img-width"
                 onClick={redirect}
                 id={location.id}
-                src="https://via.placeholder.com/600x150"
+                src={`/assets/lincoln-road-${location.id}.png`}
               ></img>
-            </div>
-          </Paper>
-        </Grid>
+            </Grid>
+          </Box>
+          {/* </Grid> */}
+        </Fade>
       ));
       setListLocation(listLocations);
     });
   }, []);
 
   return (
-    <Grid container spacing={4}>
-      <div className="pt-5">{listLocation}</div>
+    <Grid
+      container
+      spacing={4}
+      justify="center"
+      // alignItems="center"
+      // spacing={4}
+      className={classes.root}
+    >
+      <div>{listLocation}</div>
     </Grid>
   );
 }
 
 export default Locations;
-
-// <Grid container spacing={4}>
-//   <Grid item xs={12} md={6}>
-//     <Location data={"restaurant 1"} />
-//   </Grid>
-//   <br />
-//   <Grid item xs={12} md={6}>
-//     <Location data={"restaurant 2"} />
-//   </Grid>
-//   <br />
-//   <Grid item xs={12} md={6}>
-//     <Location data={"restaurant 3"} />
-//   </Grid>
-//   <br />
-//   <Grid item xs={12} md={6}>
-//     <Location data={"restaurant 4"} />
-//   </Grid>
-// </Grid>

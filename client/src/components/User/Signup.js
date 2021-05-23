@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUpForm() {
+export default function SignUpForm({setAlreadyHaveAccount}) {
   const classes = useStyles();
 
   const SignupSubmit = (e) => {
@@ -118,7 +118,7 @@ export default function SignUpForm() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="#" variant="body2" onClick={()=> setAlreadyHaveAccount(false)}>
                 Already have an account? Sign in
               </Link>
             </Grid>
