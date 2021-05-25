@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignInSide({setAlreadyHaveAccount}) {
+export default function SignInSide({ setAlreadyHaveAccount }) {
   const classes = useStyles();
 
   return (
@@ -118,7 +118,11 @@ export default function SignInSide({setAlreadyHaveAccount}) {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2" onClick={()=> setAlreadyHaveAccount(true)}>
+                <Link
+                  href="#"
+                  variant="body2"
+                  onClick={() => setAlreadyHaveAccount(true)}
+                >
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

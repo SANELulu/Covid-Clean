@@ -14,7 +14,6 @@ function Locations() {
     spacing: 8,
     root: {
       flexGrow: 1,
-      // display: "inline",
       background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
     },
     image: {
@@ -47,9 +46,9 @@ function Locations() {
       };
 
       let listLocations = restaurants.map((location) => (
-        <Fade left cascade delay={900}>
-          <Box p={2} xs={12} sm={6}>
-            {/* <h5>title : {location.features[0].properties.title}</h5> */}
+        <Box p={2} xs={12} sm={6}>
+          {/* <h5>title : {location.features[0].properties.title}</h5> */}
+          <Fade left cascade delay={900}>
             <img
               style={{
                 borderRadius: 16,
@@ -68,8 +67,8 @@ function Locations() {
               id={location.id}
               src={`/assets/lincoln-road-${location.id}.png`}
             ></img>
-          </Box>
-        </Fade>
+          </Fade>
+        </Box>
       ));
       setListLocation(listLocations);
     });

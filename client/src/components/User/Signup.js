@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -13,6 +13,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import API from "../../Utils/API";
+// import axios from "axios";
+// import mongoose from "mongoose";
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -33,12 +36,39 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUpForm({setAlreadyHaveAccount}) {
+export default function SignUpForm({ setAlreadyHaveAccount }) {
+  const [userForm, setUserForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+
   const classes = useStyles();
 
   const SignupSubmit = (e) => {
     e.preventDefault();
-    console.log("SingupSubmit hittin");
+    const userObject = {
+      firstName: userForm.firstName,
+      lastName: userForm.lastName,
+      email: userForm.email,
+      password: userForm.password,
+    };
+
+    API.postUser({
+      firstName: userForm.firstName,
+      lastName: userForm.lastName,
+      email: userForm.email,
+      password: userForm.password,
+    })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    setUserForm({ firstName: "", lastName: "", email: "", password: "" });
   };
 
   return (
@@ -63,6 +93,13 @@ export default function SignUpForm({setAlreadyHaveAccount}) {
                 id="firstName"
                 label="First Name"
                 autoFocus
+                value={userForm.firstName}
+                onChange={(e) =>
+                  setUserForm((prevState) => ({
+                    ...prevState,
+                    firstName: e.target.value,
+                  }))
+                }
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -74,6 +111,13 @@ export default function SignUpForm({setAlreadyHaveAccount}) {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
+                value={userForm.lastName}
+                onChange={(e) =>
+                  setUserForm((prevState) => ({
+                    ...prevState,
+                    lastName: e.target.value,
+                  }))
+                }
               />
             </Grid>
             <Grid item xs={12}>
@@ -85,6 +129,13 @@ export default function SignUpForm({setAlreadyHaveAccount}) {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                value={userForm.email}
+                onChange={(e) =>
+                  setUserForm((prevState) => ({
+                    ...prevState,
+                    email: e.target.value,
+                  }))
+                }
               />
             </Grid>
             <Grid item xs={12}>
@@ -97,6 +148,13 @@ export default function SignUpForm({setAlreadyHaveAccount}) {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={userForm.password}
+                onChange={(e) =>
+                  setUserForm((prevState) => ({
+                    ...prevState,
+                    password: e.target.value,
+                  }))
+                }
               />
             </Grid>
             {/* <Grid item xs={12}>
@@ -118,7 +176,11 @@ export default function SignUpForm({setAlreadyHaveAccount}) {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2" onClick={()=> setAlreadyHaveAccount(false)}>
+              <Link
+                href="#"
+                variant="body2"
+                onClick={() => setAlreadyHaveAccount(false)}
+              >
                 Already have an account? Sign in
               </Link>
             </Grid>

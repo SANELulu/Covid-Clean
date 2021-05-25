@@ -7,10 +7,10 @@ export default {
   getMapID: function (id) {
     return axios.get("/api/map/" + id);
   },
-  postUser: function () {
-    return axios.get("/api/user");
+  postUser: function (postData) {
+    return axios.post("/api/user", postData);
   },
-  getUser: function (id) {
-    return axios.post("/api/user" + id);
-  },
+  // getUser: function (id) {
+  //   return axios.post("/api/user" + id);
+  // },
 };
