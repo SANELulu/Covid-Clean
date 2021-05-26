@@ -14,7 +14,7 @@ function Nav() {
             <img src={logo} id="logo" className="navbar-brand logo"></img>
           </a>
           <a className="navbar-brand" href="/login">
-            LOGIN
+            SIGNIN
           </a>
         </nav>
       </div>
