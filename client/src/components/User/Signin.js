@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -12,6 +12,8 @@ import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
+import API from "../../Utils/API";
 
 function Copyright() {
   return (
@@ -63,6 +65,32 @@ const useStyles = makeStyles((theme) => ({
 export default function SignInSide({ setAlreadyHaveAccount }) {
   const classes = useStyles();
 
+  let history = useHistory();
+  const [userForm, setUserForm] = useState({
+    email: "",
+    password: "",
+  });
+
+  const SigninSubmit = (e) => {
+    e.preventDefault();
+    const userObject = {
+      email: userForm.email,
+      password: userForm.password,
+    };
+    // console.log(userObject);
+    API.getUser(userObject)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    setUserForm({ email: "", password: "" });
+
+    history.push("/");
+  };
+
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -86,6 +114,13 @@ export default function SignInSide({ setAlreadyHaveAccount }) {
               name="email"
               autoComplete="email"
               autoFocus
+              value={userForm.email}
+              onChange={(e) =>
+                setUserForm((prevState) => ({
+                  ...prevState,
+                  email: e.target.value,
+                }))
+              }
             />
             <TextField
               variant="outlined"
@@ -97,6 +132,13 @@ export default function SignInSide({ setAlreadyHaveAccount }) {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={userForm.password}
+              onChange={(e) =>
+                setUserForm((prevState) => ({
+                  ...prevState,
+                  password: e.target.value,
+                }))
+              }
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -108,6 +150,13 @@ export default function SignInSide({ setAlreadyHaveAccount }) {
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={SigninSubmit}
+              onChange={(e) =>
+                setUserForm((prevState) => ({
+                  ...prevState,
+                  password: e.target.value,
+                }))
+              }
             >
               Sign In
             </Button>

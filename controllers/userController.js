@@ -7,14 +7,21 @@ module.exports = {
   //     .then((dbModel) => res.json(dbModel))
   //     .catch((err) => res.status(422).json(err));
   // },
-  // findById: function (req, res) {
-  //   db.User.findOne({ id: req.params.id })
-  //     .then((dbModel) => res.json(dbModel))
-  //     .catch((err) => res.status(422).json(err));
-  // },
-  create: function (req, res) {
-    db.User.create(req.body)
+  findById: function (req, res) {
+    db.User.find({ email: req.body.email })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
+  },
+  create: function (req, res) {
+    // console.log("////////////////userController.js");
+    console.log(req.body);
+    // console.log("////////////////userController.js");
+    db.User.create(req.body)
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => {
+        console.log(err);
+        res.status(422).json(err);
+      });
+    console.log("////////////////userController.js");
   },
 };

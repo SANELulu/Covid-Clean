@@ -8,9 +8,12 @@ export default {
     return axios.get("/api/map/" + id);
   },
   postUser: function (postData) {
-    return axios.post("/api/user", postData);
+    // console.log("//////////////API.js");
+    // console.log(postData);
+    // console.log("//////////////API.js");
+    return axios.post("/api/user/signup", postData);
   },
-  // getUser: function (id) {
-  //   return axios.post("/api/user" + id);
-  // },
+  getUser: function (userData) {
+    return axios.post("/api/user/signin", userData);
+  },
 };
