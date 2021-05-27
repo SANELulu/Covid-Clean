@@ -27,8 +27,8 @@ const Map = ({ id }) => {
   const [lat, setLat] = useState(25.790676);
   const [zoom, setZoom] = useState(15.9);
 
-  const [mrkLng, setMrkLng] = useState();
-  const [mrkLat, setMrkLat] = useState();
+  // const [mrkLng, setMrkLng] = useState();
+  // const [mrkLat, setMrkLat] = useState();
   // const [mrkCoordinates, setMrkCoordinates] = useState([]);
 
   useEffect(() => {

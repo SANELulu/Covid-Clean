@@ -27,17 +27,21 @@ class Form extends React.Component {
   //   .then(employees => this.setState({ employees }))
 
   // Once the form is submited this function will post to the backend
-
+  // getIDHere({ id }) {
+  //   console.log(id);
+  // }
   componentDidMount = () => {
-    this.getLocation();
-    this.getUser();
+    // getIDhere();
+    // console.log({ id });
+    // this.getLocation();
+    // this.getUser();
   };
 
   // Check if this get an specific ID or all the businesses
 
   getLocation = () => {
     axios
-      .get("/allData/id")
+      .get("/allData/:id")
       .then((response) => {
         const data = response.data;
         this.setState({ currentBusiness: data });
