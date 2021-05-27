@@ -5,15 +5,16 @@ export default function Checkboxes() {
   const [checked, setChecked] = React.useState(true);
 
   const handleChange = (event) => {
-    setChecked(event.target.checked);
+    setChecked(event.target.checked); 
+    console.log('checked')
   };
 
   return (
     <div>
       <Checkbox
-        defaultChecked
         color="primary"
         inputProps={{ "aria-label": "secondary checkbox" }}
+        onChange={handleChange}
       />
     </div>
   );
