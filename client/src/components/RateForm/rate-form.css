@@ -1,0 +1,36 @@
+.rateForm{
+    box-sizing: border-box;
+    text-align: center;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+
+    
+}
+
+label {
+    margin: 20px;
+    text-align: center;
+    
+}
+.title{
+    font-size:38px;
+}
+textarea{
+    padding: 10px;
+    margin: 10px;
+    width: 400px;
+    height: 50px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+
+    
+}
+
+.buttonPost {
+    margin: 20px;
+    background-color: rgb(26, 38, 206);
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    border-radius: 1ch;
+    border-color: whitesmoke;
+
+}

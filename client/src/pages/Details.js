@@ -124,7 +124,7 @@ function Details() {
         </button> */}
         <RateForm id={id} />
         <br />
-        <CommunityRatings />
+        <CommunityRatings id={id} />
       </Fade>
     </div>
   );
