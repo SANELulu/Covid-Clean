@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@material-ui/core";
 function CommunityRatings({ id }) {
-  const [reviewList, setReviewList] = useState();
+  const [allReviews, setReviewList] = useState();
 
   const useStyles = makeStyles({
     root: {
@@ -37,18 +37,42 @@ function CommunityRatings({ id }) {
     API.getMapID(id)
       .then((res) => {
         console.log("//////////////");
-        // res.data.reviews refers to whatever the object
-        // probably wont be res.data.reviews but some other stuff
-        //  inside of the location in mongodb that holds the reviews
-        // const reviews = res.data.reviews
+
+        const reviews = res.data.reviews;
+        console.log(reviews);
         console.log("//////////////");
+        let reviewList = reviews.map((review) => (
+          <Box p={2} xs={12} sm={6}>
+            <Grid item xs={12}>
+              <a>USER RATINGS:</a>
+              <a>{id}</a>
 
-        // let reviewList = reviews.map((review) => (
-        //   <Box p={2} xs={12} sm={6}>
-
-        //   </Box>
-        // ));
-        // setReviewList(reviewList);
+              <Card className={classes.root}>
+                <CardContent>
+                  <Typography
+                    className={classes.title}
+                    color="textSecondary"
+                    gutterBottom
+                  >
+                    Clean Rating: {review.cleanRating}
+                  </Typography>
+                  <Typography variant="h5" component="h2">
+                    {review.comment}
+                  </Typography>
+                  <Typography className={classes.pos} color="textSecondary">
+                    Star Rating: {review.starRating}
+                  </Typography>
+                  <Typography variant="body2" component="p">
+                    <br />
+                    sDRating: {review.sdRating}
+                  </Typography>
+                </CardContent>
+                <CardActions></CardActions>
+              </Card>
+            </Grid>
+          </Box>
+        ));
+        setReviewList(reviewList);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -61,36 +85,38 @@ function CommunityRatings({ id }) {
       alignItems="center"
       justify="center"
     >
-      <Grid item xs={12}>
-        <a>USER RATINGS:</a>
-        <a>{id}</a>
-
-        <Card className={classes.root}>
-          <CardContent>
-            <Typography
-              className={classes.title}
-              color="textSecondary"
-              gutterBottom
-            >
-              PLACEHOLDER HERE
-            </Typography>
-            <Typography variant="h5" component="h2">
-              be{bull}nev{bull}o{bull}lent
-            </Typography>
-            <Typography className={classes.pos} color="textSecondary">
-              adjective
-            </Typography>
-            <Typography variant="body2" component="p">
-              well meaning and kindly.
-              <br />
-              {'"a benevolent smile"'}
-            </Typography>
-          </CardContent>
-          <CardActions></CardActions>
-        </Card>
-      </Grid>
+      {allReviews}
     </Grid>
   );
 }
 
 export default CommunityRatings;
+
+// <Grid item xs={12}>
+//         <a>USER RATINGS:</a>
+//         <a>{id}</a>
+
+//         <Card className={classes.root}>
+//           <CardContent>
+//             <Typography
+//               className={classes.title}
+//               color="textSecondary"
+//               gutterBottom
+//             >
+//               PLACEHOLDER HERE
+//             </Typography>
+//             <Typography variant="h5" component="h2">
+//               be{bull}nev{bull}o{bull}lent
+//             </Typography>
+//             <Typography className={classes.pos} color="textSecondary">
+//               adjective
+//             </Typography>
+//             <Typography variant="body2" component="p">
+//               well meaning and kindly.
+//               <br />
+//               {'"a benevolent smile"'}
+//             </Typography>
+//           </CardContent>
+//           <CardActions></CardActions>
+//         </Card>
+//       </Grid>
