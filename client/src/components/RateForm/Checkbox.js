@@ -1,20 +1,13 @@
 import React from "react";
 import Checkbox from "@material-ui/core/Checkbox";
 
-export default function Checkboxes() {
-  const [checked, setChecked] = React.useState(true);
-
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
-    console.log(checked);
-  };
-
+export default function Checkboxes(props) {
   return (
     <div>
       <Checkbox
         color="primary"
         inputProps={{ "aria-label": "secondary checkbox" }}
-        onChange={handleChange}
+        onChange={props.onChange}
       />
     </div>
   );

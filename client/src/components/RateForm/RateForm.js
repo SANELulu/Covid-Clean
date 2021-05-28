@@ -9,9 +9,9 @@ import API from "../../Utils/API";
 
 const Form = ({ id }) => {
   const [comment, setComment] = useState();
-  const [maskRating, setMaskRating] = useState(true);
-  const [socialDistancingRating, setsocialDistancingRating] = useState(true);
-  const [cleanlinessRating, setcleanlinessRating] = useState(true);
+  const [maskRating, setMaskRating] = useState(false);
+  const [socialDistancingRating, setsocialDistancingRating] = useState(false);
+  const [cleanlinessRating, setcleanlinessRating] = useState(false);
   // const [finalRating, setfinalRating] = useState();
   const [starRatingValue, setRating] = useState(null);
   const [hover, setHover] = useState(null);
@@ -21,10 +21,10 @@ const Form = ({ id }) => {
 
   const commentUpd = (event) => {
     setComment(event.target.value);
-    console.log(comment);
   };
 
   const maskRatingUpd = (event) => {
+    console.log(event.target.checked);
     setMaskRating(event.target.checked);
     console.log(maskRating);
   };
@@ -50,7 +50,6 @@ const Form = ({ id }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("handleSubmit hittin boi");
-
     const review = {
       comment,
       maskRating,
@@ -77,6 +76,7 @@ const Form = ({ id }) => {
       .catch((error) => {
         console.log(error);
       });
+    // console.log(maskRating.value);
   };
 
   return (
@@ -156,45 +156,6 @@ const Form = ({ id }) => {
         </form>
       </div>
     </div>
-
-    // <div>
-    //   <form onSubmit={handleSubmit}>
-    //     <label>
-    //       Hi  Please rate your experience on{"{id}"}
-
-    //     </label>
-
-    //     {/* Rate if the employees are wearing masks and Gloves */}
-    //     <label>Employees wear Masks and Gloves</label>
-    //     <Checkboxes onChange={maskRatingUpd} />
-
-    //     {/* Rate Social Distancing  */}
-    //     <label>Social Distancing</label>
-    //     <Checkboxes onChange={distancingUpd} />
-
-    //     {/* Rate Cleanliness */}
-    //     <label>Cleanliness</label>
-    //     <Checkboxes onChange={cleanlinessUpd} />
-
-    //     <label>
-    //       Please feel free to provide more details about your experience in
-    //       {id}
-    //     </label>
-    //     <textarea
-    //       value={comment}
-    //       onChange={commentUpd}
-    //     >
-    //       Comment
-    //     </textarea>
-
-    //     <label>
-    //       Please provide your final Rating on {id}
-    //     </label>
-    //     <StarRating onChange={finalRatUpd} />
-
-    //     <button type="submit">Post Rating</button>
-    //   </form>
-    // </div>
   );
 };
 export default Form;

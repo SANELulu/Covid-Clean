@@ -55,7 +55,7 @@ function Details() {
       )
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           const states = data.map((state) => ({
             name: state.state,
             value: state.timeline[0].total,

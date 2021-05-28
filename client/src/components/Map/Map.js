@@ -80,10 +80,8 @@ const Map = ({ id }) => {
   }, []);
 
   // console.log(mrkCoordinates);
-
   // console.log(mrkLat);
   // console.log(mrkLng);
-
   // new mapboxgl.Marker().setLngLat([mrkLat, mrkLng]).addTo(map);
 
   return (

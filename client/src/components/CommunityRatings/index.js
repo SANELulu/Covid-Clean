@@ -54,7 +54,7 @@ function CommunityRatings({ id }) {
                     color="textSecondary"
                     gutterBottom
                   >
-                    Clean Rating: {review.cleanRating}
+                    Clean Rating: {review.cleanRating + ""}
                   </Typography>
                   <Typography variant="h5" component="h2">
                     {review.comment}
@@ -64,7 +64,7 @@ function CommunityRatings({ id }) {
                   </Typography>
                   <Typography variant="body2" component="p">
                     <br />
-                    sDRating: {review.sdRating}
+                    sDRating: {review.sdRating + ""}
                   </Typography>
                 </CardContent>
                 <CardActions></CardActions>
@@ -81,7 +81,7 @@ function CommunityRatings({ id }) {
     <Grid
       container
       spacing={4}
-      direction="column"
+      direction="row"
       alignItems="center"
       justify="center"
     >
