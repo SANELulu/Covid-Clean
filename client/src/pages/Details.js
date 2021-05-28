@@ -113,6 +113,7 @@ function Details() {
             total={numeral(countryInfo.recovered).format("0.0a")}
           />
         </Grid>
+
         <LineGraph />
 
         <MapExport id={id} />

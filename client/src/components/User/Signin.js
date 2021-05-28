@@ -83,7 +83,7 @@ export default function SignInSide({ setAlreadyHaveAccount }) {
         console.log(res.data);
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
 
     setUserForm({ email: "", password: "" });

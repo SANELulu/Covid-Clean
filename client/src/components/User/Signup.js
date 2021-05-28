@@ -13,8 +13,13 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import API from "../../Utils/API";
+import bcrypt from "bcryptjs"
+
 // import axios from "axios";
 // import mongoose from "mongoose";
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -65,7 +70,7 @@ export default function SignUpForm({ setAlreadyHaveAccount }) {
         console.log(res.data);
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
 
     setUserForm({ firstName: "", lastName: "", email: "", password: "" });

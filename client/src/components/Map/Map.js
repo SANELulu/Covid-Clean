@@ -56,7 +56,7 @@ const Map = ({ id }) => {
       .then((res) => {
         // console.log(res);
         // console.log(res.data.features[0].properties);
-        var popup = new mapboxgl.Popup({ offset: 35 }).setHTML(
+        var popup = new mapboxgl.Popup({ offset: 0 }).setHTML(
           "<h3>" +
             "<a href = " +
             res.data.features[0].properties.website +
@@ -88,7 +88,17 @@ const Map = ({ id }) => {
 
   return (
     <div>
-      <div className="map-container" id="map" ref={mapContainer} />
+      <div
+        style={{
+          borderRadius: 16,
+          border: 1,
+          maxHeight: "400px",
+          // width: "auto",
+        }}
+        className="map-container"
+        id="map"
+        ref={mapContainer}
+      />
     </div>
   );
 };

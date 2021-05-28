@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import numeral from "numeral";
+import { Grid } from "@material-ui/core";
 
 const options = {
   legend: {
@@ -82,23 +83,25 @@ function LineGraph({ casesType }) {
   }, [casesType]);
 
   return (
-    <div>
-      {data?.length > 0 && (
-        <Line
-          data={{
-            datasets: [
-              {
-                label: "Covid Vaccines",
-                backgroundColor: "rgba(204, 16, 52, 0.5)",
-                borderColor: "#CC1034",
-                data: data,
-              },
-            ],
-          }}
-          options={options}
-        />
-      )}
-    </div>
+    <Grid container spacing={4} justify="center" alignItems="center">
+      <Grid item xs={6}>
+        {data?.length > 0 && (
+          <Line
+            data={{
+              datasets: [
+                {
+                  label: "Covid Vaccines",
+                  backgroundColor: "rgba(204, 16, 52, 0.5)",
+                  borderColor: "#CC1034",
+                  data: data,
+                },
+              ],
+            }}
+            options={options}
+          />
+        )}
+      </Grid>
+    </Grid>
   );
 }
 

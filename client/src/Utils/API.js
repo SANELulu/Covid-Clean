@@ -16,4 +16,7 @@ export default {
   getUser: function (userData) {
     return axios.post("/api/user/signin", userData);
   },
+  postReview: function (reviewData) {
+    return axios.post("/api/map/postreview", reviewData);
+  },
 };
