@@ -9,6 +9,7 @@ import InfoBox from "../components/InfoBox";
 import { sortData, prettyPrintStat } from "../Utils/";
 import numeral from "numeral";
 import { Grid } from "@material-ui/core";
+import API from "../Utils/API";
 import "./details.css";
 function Details() {
   let history = useHistory();
@@ -26,6 +27,7 @@ function Details() {
   const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
   const [mapZoom, setMapZoom] = useState(3);
   const [states, setStates] = useState([]);
+  const [locationState, setLocationState] = useState();
 
   useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/countries/usa")
@@ -33,6 +35,16 @@ function Details() {
       .then((data) => {
         setCountryInfo(data);
       });
+
+    // API.getMapID(id)
+    //   .then((res) => {
+    //     console.log(res.data);
+    //     const locationData = res.data.features[0].properties;
+    //     console.log(locationData);
+    //     setLocationState(locationData);
+    //     console.log(locationState);
+    //   })
+    //   .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
@@ -123,10 +135,10 @@ function Details() {
         {/* <button onClick={redirect} type="button" className="btn btn-dark">
           post rating?
         </button> */}
-        <RateForm id={id} />
-        <br />
+
         <CommunityRatings id={id} />
       </Fade>
+      <RateForm id={id} />
     </div>
   );
 }

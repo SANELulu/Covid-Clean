@@ -5,6 +5,18 @@ import { FaStar } from "react-icons/fa";
 import "./starRating.css";
 import "./rate-form.css";
 import API from "../../Utils/API";
+import {
+  Grid,
+  makeStyles,
+  Card,
+  CardContent,
+  Typography,
+  TextField,
+  Button,
+  FormControlLabel,
+  Switch,
+  Fade,
+} from "@material-ui/core";
 // import axios from "axios";
 
 const Form = ({ id }) => {
@@ -12,10 +24,15 @@ const Form = ({ id }) => {
   const [maskRating, setMaskRating] = useState(false);
   const [socialDistancingRating, setsocialDistancingRating] = useState(false);
   const [cleanlinessRating, setcleanlinessRating] = useState(false);
-  // const [finalRating, setfinalRating] = useState();
+
   const [starRatingValue, setRating] = useState(null);
   const [hover, setHover] = useState(null);
-
+  ///////////show and hide slider
+  const [checked, setChecked] = React.useState(false);
+  const handleChange = () => {
+    setChecked((prev) => !prev);
+  };
+  ///////////////////////
   // Grab currentUser and currentBusiness from the user db
   //    // Add the below fields to the user db to store that info
 
@@ -38,14 +55,6 @@ const Form = ({ id }) => {
     setcleanlinessRating(event.target.checked);
     console.log(cleanlinessRating);
   };
-
-  // const finalRatUpd = (event) => {
-  //   setfinalRating(event.target.value);
-  //   console.log(event.target.value);
-  //   // console.log(finalRating);
-  // };
-
-  // Once the form is submited this function will post to the backend
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -76,85 +85,124 @@ const Form = ({ id }) => {
       .catch((error) => {
         console.log(error);
       });
-    // console.log(maskRating.value);
   };
+
+  const useStyles = makeStyles({
+    root: {
+      minWidth: 275,
+    },
+    bullet: {
+      display: "inline-block",
+      margin: "0 2px",
+      transform: "scale(0.8)",
+    },
+    title: {
+      fontSize: 14,
+    },
+    pos: {
+      marginBottom: 12,
+    },
+  });
+
+  const classes = useStyles();
+  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <div>
-      <div className="rateForm">
-        <form onSubmit={handleSubmit}>
-          <label className="title">
-            Hi {id} <br></br>Please rate your experience on: {id}
-          </label>
-          <br></br>
+      <FormControlLabel
+        style={{ textAlign: "center" }}
+        control={<Switch checked={checked} onChange={handleChange} />}
+        label="Post Rating? "
+      />
+      <Fade in={checked}>
+        <Grid container spacing={4} justify="center">
+          <Grid item xs={6}>
+            <form onSubmit={handleSubmit}>
+              <Card
+                className={classes.root}
+                style={{
+                  background:
+                    "linear-gradient(45deg, #f8e6ff 20%, #4939ff 90%)",
+                }}
+              >
+                <CardContent>
+                  <Typography
+                    className={classes.title}
+                    color="textSecondary"
+                    gutterBottom
+                  >
+                    Please rate your experience on: {id}
+                  </Typography>
+                  <Typography variant="h5" component="h2">
+                    Masks and Gloves?
+                    <Checkboxes className="checkbox" onChange={maskRatingUpd} />
+                  </Typography>
+                  <Typography className={classes.pos} color="textSecondary">
+                    Social Distancing?
+                    <Checkboxes className="checkbox" onChange={distancingUpd} />
+                  </Typography>
+                  <Typography variant="body2" component="p">
+                    Cleanliness?
+                    <Checkboxes
+                      color="primary"
+                      inputProps={{ "aria-label": "secondary checkbox" }}
+                      className="checkbox"
+                      onChange={cleanlinessUpd}
+                    />
+                    <br />
+                    Additional Details?
+                    <br />
+                    <TextField
+                      value={comment}
+                      // justify="center"
+                      id="outlined-size-small"
+                      variant="outlined"
+                      size="small"
+                      onChange={commentUpd}
+                    />
+                    <Grid item direction="row" onSubmit={handleSubmit}>
+                      {[...Array(5)].map((star, i) => {
+                        const ratingValue = i + 1;
+                        return (
+                          <label className="star-rating">
+                            <input
+                              type="radio"
+                              name="rating"
+                              value={ratingValue}
+                              onClick={() => setRating(ratingValue)}
+                            />
+                            <FaStar
+                              display="inline-block"
+                              className="star"
+                              color={
+                                ratingValue <= (hover || starRatingValue)
+                                  ? "#ffc107"
+                                  : "#e4e5e9"
+                              }
+                              size={30}
+                              onMouseEnter={() => setHover(starRatingValue)}
+                              onMouseLeave={() => setHover(null)}
+                            />
+                          </label>
+                        );
+                      })}
 
-          {/* Rate if the employees are wearing masks and Gloves */}
-
-          <label> Employees Wear Masks and Gloves</label>
-          <Checkboxes className="checkbox" onChange={maskRatingUpd} />
-
-          {/* Rate Social Distancing  */}
-
-          <label>Social Distancing</label>
-          <Checkboxes className="checkbox" onChange={distancingUpd} />
-
-          {/* Rate Cleanliness */}
-
-          <label>Cleanliness</label>
-          <Checkboxes
-            color="primary"
-            inputProps={{ "aria-label": "secondary checkbox" }}
-            className="checkbox"
-            onChange={cleanlinessUpd}
-          />
-
-          <label>
-            Please feel free to provide more details about your experience in{" "}
-            {id}
-          </label>
-          <br></br>
-          <textarea
-            value={comment}
-            placeholder="Leave Comment Here"
-            onChange={commentUpd}
-          ></textarea>
-
-          <br></br>
-
-          <label>Please provide your final Rating on {id}</label>
-          <div>
-            {[...Array(5)].map((star, i) => {
-              const ratingValue = i + 1;
-
-              return (
-                <label className="star-rating">
-                  <input
-                    type="radio"
-                    name="rating"
-                    value={ratingValue}
-                    onClick={() => setRating(ratingValue)}
-                  />
-                  <FaStar
-                    className="star"
-                    color={
-                      ratingValue <= (hover || starRatingValue)
-                        ? "#ffc107"
-                        : "#e4e5e9"
-                    }
-                    size={35}
-                    onMouseEnter={() => setHover(starRatingValue)}
-                    onMouseLeave={() => setHover(null)}
-                  />
-                </label>
-              );
-            })}
-          </div>
-
-          <button className="buttonPost" type="submit">
-            Post Rating
-          </button>
-        </form>
-      </div>
+                      <Button
+                        variant="outlined"
+                        color="secondary"
+                        className="buttonPost"
+                        type="submit"
+                      >
+                        Submit
+                      </Button>
+                    </Grid>
+                  </Typography>
+                </CardContent>
+              </Card>
+            </form>
+          </Grid>
+        </Grid>
+      </Fade>
     </div>
   );
 };

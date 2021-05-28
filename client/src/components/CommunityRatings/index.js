@@ -15,7 +15,7 @@ function CommunityRatings({ id }) {
 
   const useStyles = makeStyles({
     root: {
-      minWidth: 275,
+      width: 300,
     },
     bullet: {
       display: "inline-block",
@@ -27,6 +27,9 @@ function CommunityRatings({ id }) {
     },
     pos: {
       marginBottom: 12,
+    },
+    card: {
+      width: "100px",
     },
   });
 
@@ -43,10 +46,9 @@ function CommunityRatings({ id }) {
         console.log("//////////////");
         let reviewList = reviews.map((review) => (
           <Box p={2} xs={12} sm={6}>
-            <Grid item xs={12}>
+            <Grid item xs={12} className={classes.root}>
               <a>USER RATINGS:</a>
               <a>{id}</a>
-
               <Card className={classes.root}>
                 <CardContent>
                   <Typography

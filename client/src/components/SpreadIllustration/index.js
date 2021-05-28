@@ -9,7 +9,6 @@ function SpreadIllustration({ data }) {
     <Fade top delay={900}>
       <div>
         <Grid>
-          <h5>{data}</h5>
           <a href="/">
             <img id="spread" src={spreadImage}></img>
           </a>
