@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Covid-Clean/static/css/main.9c67a406.chunk.css",
+    "main.js": "/Covid-Clean/static/js/main.57afcdae.chunk.js",
+    "main.js.map": "/Covid-Clean/static/js/main.57afcdae.chunk.js.map",
+    "runtime-main.js": "/Covid-Clean/static/js/runtime-main.cb66404c.js",
+    "runtime-main.js.map": "/Covid-Clean/static/js/runtime-main.cb66404c.js.map",
+    "static/js/2.279ed4fc.chunk.js": "/Covid-Clean/static/js/2.279ed4fc.chunk.js",
+    "static/js/2.279ed4fc.chunk.js.map": "/Covid-Clean/static/js/2.279ed4fc.chunk.js.map",
+    "index.html": "/Covid-Clean/index.html",
+    "static/css/main.9c67a406.chunk.css.map": "/Covid-Clean/static/css/main.9c67a406.chunk.css.map",
+    "static/js/2.279ed4fc.chunk.js.LICENSE.txt": "/Covid-Clean/static/js/2.279ed4fc.chunk.js.LICENSE.txt",
+    "static/media/C.66a1455a.png": "/Covid-Clean/static/media/C.66a1455a.png",
+    "static/media/cleanmind-text-50.d2b898d9.png": "/Covid-Clean/static/media/cleanmind-text-50.d2b898d9.png",
+    "static/media/cleanmind.74c03afb.png": "/Covid-Clean/static/media/cleanmind.74c03afb.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cb66404c.js",
+    "static/js/2.279ed4fc.chunk.js",
+    "static/css/main.9c67a406.chunk.css",
+    "static/js/main.57afcdae.chunk.js"
+  ]
+}
