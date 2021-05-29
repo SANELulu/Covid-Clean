@@ -109,14 +109,14 @@ const Form = ({ id }) => {
 
   return (
     <div>
-      <FormControlLabel
-        style={{ textAlign: "center" }}
-        control={<Switch checked={checked} onChange={handleChange} />}
-        label="Post Rating? "
-      />
-      <Fade in={checked}>
-        <Grid container spacing={4} justify="center">
-          <Grid item xs={6}>
+      <Grid container spacing={4} justify="center">
+        <Grid item xs={6}>
+          <FormControlLabel
+            style={{ textAlign: "center" }}
+            control={<Switch checked={checked} onChange={handleChange} />}
+            label="Post Rating? "
+          />
+          <Fade in={checked}>
             <form onSubmit={handleSubmit}>
               <Card
                 className={classes.root}
@@ -200,9 +200,9 @@ const Form = ({ id }) => {
                 </CardContent>
               </Card>
             </form>
-          </Grid>
+          </Fade>
         </Grid>
-      </Fade>
+      </Grid>
     </div>
   );
 };

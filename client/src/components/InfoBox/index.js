@@ -12,7 +12,7 @@ import {
 function InfoBox({ title, cases, total, active, isRed, ...props }) {
   console.log(title, active);
   return (
-    <Grid item xs={4}>
+    <Grid item xs={3}>
       <Card
         onClick={props.onClick}
         className={`infoBox ${active && "infoBox--selected"} ${

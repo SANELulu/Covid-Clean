@@ -83,24 +83,22 @@ function LineGraph({ casesType }) {
   }, [casesType]);
 
   return (
-    <Grid container spacing={4} justify="center" alignItems="center">
-      <Grid item xs={6}>
-        {data?.length > 0 && (
-          <Line
-            data={{
-              datasets: [
-                {
-                  label: "Covid Vaccines",
-                  backgroundColor: "rgba(204, 16, 52, 0.5)",
-                  borderColor: "#CC1034",
-                  data: data,
-                },
-              ],
-            }}
-            options={options}
-          />
-        )}
-      </Grid>
+    <Grid item xs={6}>
+      {data?.length > 0 && (
+        <Line
+          data={{
+            datasets: [
+              {
+                label: "Covid Vaccines",
+                backgroundColor: "rgba(204, 16, 52, 0.5)",
+                borderColor: "#CC1034",
+                data: data,
+              },
+            ],
+          }}
+          options={options}
+        />
+      )}
     </Grid>
   );
 }

@@ -8,7 +8,7 @@ import LineGraph from "../components/LineGraph";
 import InfoBox from "../components/InfoBox";
 import { sortData, prettyPrintStat } from "../Utils/";
 import numeral from "numeral";
-import { Grid } from "@material-ui/core";
+import { Grid, Box } from "@material-ui/core";
 import API from "../Utils/API";
 import "./details.css";
 function Details() {
@@ -108,7 +108,30 @@ function Details() {
         <br />
         <br />
         <br />
-        <Grid container spacing={4}>
+        <Grid container spacing={3} direction="row" justify="center">
+          <Box spacing={4} p={3}>
+            <img
+              style={{
+                borderRadius: 16,
+                border: 1,
+                // display: "inline",
+                // alignItem: "center",
+                // justifyContent: "center",
+                // maxWidth: "500",
+                // height: "auto",
+                // works
+                maxHeight: "200px",
+                width: "auto",
+              }}
+              className="img-width"
+              onClick={redirect}
+              id={location.id}
+              src={`/assets/lincoln-road-${id}.png`}
+            ></img>
+          </Box>
+        </Grid>
+        <Grid container spacing={3} direction="row" justify="flex-end">
+          <LineGraph />
           <InfoBox
             onClick={(e) => setCasesType("cases")}
             title="Coronavirus Cases"
@@ -125,8 +148,6 @@ function Details() {
             total={numeral(countryInfo.recovered).format("0.0a")}
           />
         </Grid>
-
-        <LineGraph />
 
         <MapExport id={id} />
       </Fade>
