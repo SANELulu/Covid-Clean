@@ -8,7 +8,7 @@ import LineGraph from "../components/LineGraph";
 import InfoBox from "../components/InfoBox";
 import { sortData, prettyPrintStat } from "../Utils/";
 import numeral from "numeral";
-import { Grid, Box } from "@material-ui/core";
+import { Grid, Box, Typography } from "@material-ui/core";
 import API from "../Utils/API";
 import "./details.css";
 function Details() {
@@ -153,10 +153,27 @@ function Details() {
       </Fade>
       <br />
       <Fade bottom delay={900}>
-        {/* <button onClick={redirect} type="button" className="btn btn-dark">
-          post rating?
-        </button> */}
-
+        <Grid
+          container
+          spacing={4}
+          direction="row"
+          alignItems="flex-start"
+          justify="center"
+        >
+          <Box p={3} color="#f8e6ff">
+            <Typography
+              variant="h3"
+              gutterBottom
+              style={{
+                background: "#5a4dff",
+                borderRadius: 16,
+                border: 3,
+              }}
+            >
+              Community Ratings
+            </Typography>
+          </Box>
+        </Grid>
         <CommunityRatings id={id} />
       </Fade>
       <RateForm id={id} />

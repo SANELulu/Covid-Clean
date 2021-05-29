@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from "react";
 import API from "../../Utils/API";
 import {
   Grid,
-  Paper,
   makeStyles,
   Box,
   Card,
@@ -15,7 +14,7 @@ function CommunityRatings({ id }) {
 
   const useStyles = makeStyles({
     root: {
-      width: 300,
+      width: 500,
     },
     bullet: {
       display: "inline-block",
@@ -39,14 +38,18 @@ function CommunityRatings({ id }) {
   useEffect(() => {
     API.getMapID(id)
       .then((res) => {
-        console.log("//////////////");
-
         const reviews = res.data.reviews;
-        console.log(reviews);
-        console.log("//////////////");
         let reviewList = reviews.map((review) => (
-          <Box p={2} xs={12} sm={6}>
-            <Grid item xs={12} className={classes.root}>
+          <Box
+            p={2}
+            xs={12}
+            sm={6}
+            style={{
+              maxWidth: "200px",
+              height: "auto",
+            }}
+          >
+            <Grid item className={classes.root}>
               <a>USER RATINGS:</a>
               <a>{id}</a>
               <Card className={classes.root}>
@@ -84,7 +87,7 @@ function CommunityRatings({ id }) {
       container
       spacing={4}
       direction="row"
-      alignItems="center"
+      alignItems="flex-start"
       justify="center"
     >
       {allReviews}
@@ -93,32 +96,3 @@ function CommunityRatings({ id }) {
 }
 
 export default CommunityRatings;
-
-// <Grid item xs={12}>
-//         <a>USER RATINGS:</a>
-//         <a>{id}</a>
-
-//         <Card className={classes.root}>
-//           <CardContent>
-//             <Typography
-//               className={classes.title}
-//               color="textSecondary"
-//               gutterBottom
-//             >
-//               PLACEHOLDER HERE
-//             </Typography>
-//             <Typography variant="h5" component="h2">
-//               be{bull}nev{bull}o{bull}lent
-//             </Typography>
-//             <Typography className={classes.pos} color="textSecondary">
-//               adjective
-//             </Typography>
-//             <Typography variant="body2" component="p">
-//               well meaning and kindly.
-//               <br />
-//               {'"a benevolent smile"'}
-//             </Typography>
-//           </CardContent>
-//           <CardActions></CardActions>
-//         </Card>
-//       </Grid>
