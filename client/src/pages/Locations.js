@@ -65,7 +65,7 @@ function Locations() {
               className="img-width"
               onClick={redirect}
               id={location.id}
-              src={`/assets/lincoln-road-${location.id}.png`}
+              src={`./assets/lincoln-road-${location.id}.png`}
             ></img>
           </Fade>
         </Box>
