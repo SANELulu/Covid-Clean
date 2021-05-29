@@ -50,10 +50,11 @@ function CommunityRatings({ id }) {
             }}
           >
             <Grid item className={classes.root}>
-              <a>USER RATINGS:</a>
-              <a>{id}</a>
               <Card className={classes.root}>
                 <CardContent>
+                  <Typography variant="h5" component="h2">
+                    {review.comment}
+                  </Typography>
                   <Typography
                     className={classes.title}
                     color="textSecondary"
@@ -61,15 +62,11 @@ function CommunityRatings({ id }) {
                   >
                     Clean Rating: {review.cleanRating + ""}
                   </Typography>
-                  <Typography variant="h5" component="h2">
-                    {review.comment}
+                  <Typography className={classes.pos} color="textSecondary">
+                    sDRating: {review.sdRating + ""}
                   </Typography>
                   <Typography className={classes.pos} color="textSecondary">
                     Star Rating: {review.starRating}
-                  </Typography>
-                  <Typography variant="body2" component="p">
-                    <br />
-                    sDRating: {review.sdRating + ""}
                   </Typography>
                 </CardContent>
                 <CardActions></CardActions>
