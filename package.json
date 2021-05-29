@@ -31,5 +31,8 @@
     "leaflet": "^1.7.1",
     "mongoose": "^5.12.9",
     "react-chartjs-2": "^3.0.3"
+  }, 
+  "engines": {
+    "node": "14.15.4"
   }
 }
