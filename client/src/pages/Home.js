@@ -27,13 +27,6 @@ function Home() {
 
   return (
     <div className="pt-5">
-      {/* background image for home page- does not work atm
-      <div
-        style={{
-          backgroundImage: clouds,
-        }}
-      > */}
-
       <div className={classes.root}>
         <Grid container spacing={4}>
           <Grid item xs={12}>
@@ -41,29 +34,18 @@ function Home() {
               <SpreadIllustration data={"SPREAD ILLUSTRATION PROP DATA"} />
             </Paper>
           </Grid>
+
+          <Grid container spacing={4}>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <Benefits data={"PROPS DATA"} />
+              </Paper>
+            </Grid>
+          </Grid>
+
           <Grid item xs={12}>
             <Paper>
               <Locations />
-            </Paper>
-          </Grid>
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>FEATURES OF APP</Paper>
-          </Grid>
-        </Grid>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={4}>
-            <Paper className={classes.paper}>
-              <Benefits data={"PROPS DATA"} />
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Paper className={classes.paper}>
-              <Benefits data={"PROP DATA 2"} />
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Paper className={classes.paper}>
-              <Benefits data={"PROP DATA 3"} />
             </Paper>
           </Grid>
         </Grid>

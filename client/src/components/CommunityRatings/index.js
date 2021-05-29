@@ -9,6 +9,7 @@ import {
   CardContent,
   Typography,
 } from "@material-ui/core";
+import { Fade } from "react-reveal";
 function CommunityRatings({ id }) {
   const [allReviews, setReviewList] = useState();
 
@@ -60,10 +61,10 @@ function CommunityRatings({ id }) {
                     color="textSecondary"
                     gutterBottom
                   >
-                    Clean Rating: {review.cleanRating + ""}
+                    {/* Clean Rating: {review.cleanRating + ""} */}
                   </Typography>
                   <Typography className={classes.pos} color="textSecondary">
-                    sDRating: {review.sdRating + ""}
+                    {/* sDRating: {review.sdRating + ""} */}
                   </Typography>
                   <Typography className={classes.pos} color="textSecondary">
                     Star Rating: {review.starRating}
