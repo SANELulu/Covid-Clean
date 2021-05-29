@@ -16,7 +16,14 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 //week 20, activities, 22 miniproject
 // mongoose.connect('mongodb:localhost:27017/covid')
-mongoose.connect("mongodb://localhost/covid");
+// mongoose.connect("mongodb://localhost/covid");
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/covid", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
 
 // Send every request to the React app
 // Define any API routes before this runs
