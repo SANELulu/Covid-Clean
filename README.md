@@ -1,29 +1,49 @@
-# Create React Express App
+# Clean Mind
 
-## About This Boilerplate
+![License Badge](https://img.shields.io/static/v1?label=License&message=MIT_License&color=blue)
+![video](./client/src/assets/appsample.gif)
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+## Name:Sheree Britt, Lucas Diaz, Lismey Placencia, Robert Lanscoy, Mike Gordillo
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+## GitHub user name: https://github.com/SANELulu/Covid-Clean
 
-## Starting the app locally
+## Table of contents:
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+- [Description](#description)
+- [Installation](#Installation)
+- [Usage](#usage)
+- [License](#license)
+- [Testing](#testing)
+- [Questions](#questions)
 
-```
-npm install
-```
+## Description:
 
-This should install node modules within the server and the client folder.
+- Once signed in, this App will allow you to rate, leave comments and browse previous comments and ratings, for local restaurants in your area. Simply click on one of the restaurants and the user will be directed to a map view, with a marker for said resturant in the area with it's pinned location. This view will give the user acces to the covid cases count and recoverd cases to date in the states, as wel as a chart of the vaccine rates since april till current date. The App will provide a sense of security, for patrons trying to go out to dine and drink in this rapid changing setting, of a recovering world, and help us get back to enjoying our lives safely.
 
-After both installations complete, run the following command in your terminal:
+## Installation:
 
-```
-npm start
-```
+- Simply download the Repo, npm install and npm start
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+## Usage:
 
-## Deployment (Heroku)
+- First sign up, the sign in. Once you've registered, you'll have access to all the features and functionality of the App. Just explore, comment and rate local restaurants and enjoy the benefit of feeling safe in this, almost post pandemic world.
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+## license:
+
+- MIT_License
+
+## Contributing:
+
+-
+
+## Testing:
+
+-
+
+## Questions:
+
+- Contact Sheree Britt, Lucas Diaz, Lismey Placencia, Robert Lanscoy, Mike Gordillo with any questions at mikegordillotattoo@gmail.com
+  ![screenshot](./client/src/assets/app1.png)
+  ![screenshot](./client/src/assets/app2.png)
+  ![screenshot](./client/src/assets/app3.png)
+  https://github.com/SANELulu/Covid-Clean
