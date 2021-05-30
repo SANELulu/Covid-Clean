@@ -1,7 +1,8 @@
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 const db = require("../models");
+const connectDB = require("../config/db");
 
-// This file empties the Posts collection and inserts the books below
+connectDB();
 
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/covid");
 
