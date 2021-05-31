@@ -42,7 +42,7 @@
 
 ## Questions:
 
-- Contact Sheree Britt, Lucas Diaz, Lismey Placencia, Robert Lanscoy, Mike Gordillo with any questions at mikegordillotattoo@gmail.com
+- Contact Sheree Britt, Lucas Diaz, Lismey Placencia, Robert VanScoy, Mike Gordillo with any questions at mikegordillotattoo@gmail.com
   ![screenshot](./client/src/assets/app1.png)
   ![screenshot](./client/src/assets/app2.png)
   ![screenshot](./client/src/assets/app3.png)
