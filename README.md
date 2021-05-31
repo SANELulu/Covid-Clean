@@ -47,3 +47,4 @@
   ![screenshot](./client/src/assets/app2.png)
   ![screenshot](./client/src/assets/app3.png)
   https://github.com/SANELulu/Covid-Clean
+  https://boiling-dusk-14888.herokuapp.com/
